@@ -12,16 +12,20 @@
  *
  * Return: The number of nodes in the list_t list.
  */
-size_t print_listint(const listint_t *h)
+size_t print_list(const list_t *h)
 {
-	size_t nodes = 0;
+	size_t count = 0;
+	const list_t *ptr = h;
 
-	while (h)
+	if (ptr == NULL)
+		return (count);
+	while (ptr != NULL)
 	{
-		nodes++;
-		printf("%d\n", h->n);
-		h = h->next;
+		char *s = ptr->str;
+		int len = ptr->len;
+		(s != NULL) ? printf("[%d] %s\n", len, s) : printf("[0] (nil)\n");
+		ptr = ptr->next;
+		count++;
 	}
-
-	return (nodes);
+	return (count);
 }
