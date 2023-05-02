@@ -1,22 +1,25 @@
+
+Here's an implementation of the print_listint function in C that prints all the elements of a linked list:
+
+c
+Copy code
 #include "lists.h"
-#include <stdio.h>
 
 /**
- * print_listint - Prints all the elements of a listint_t list.
- * @h: A pointer to the head of the list_t list.
- *
- * Return: The number of nodes in the list_t list.
+ * print_listint - prints all the elements of a listint_t list
+ * @h: pointer to the head of the linked list
+ * Return: the number of nodes in the list
  */
 size_t print_listint(const listint_t *h)
 {
-	size_t nodes = 0;
+    size_t count = 0;
 
-	while (h)
-	{
-		nodes++;
-		printf("%d\n", h->n);
-		h = h->next;
-	}
+    while (h != NULL)
+    {
+        printf("%d\n", h->n);
+        count++;
+        h = h->next;
+    }
 
-	return (nodes);
+    return (count);
 }
