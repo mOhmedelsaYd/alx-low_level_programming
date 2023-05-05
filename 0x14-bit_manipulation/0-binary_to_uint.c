@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 /**
  * binary_to_uint - converts a binary string to an unsigned int
  *
@@ -10,11 +11,13 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-int strl = strlen(b);
+int strl = 0;
 int total = 0;
 int decval = 1;
 int i;
 
+while (b[strl])
+strl++;
 for (i = (strl - 1); i >= 0; i--)
 {
 if (!(b[i] >= 97 && b[i] <= 122) && !(b[i] >= 65 && b[i] <= 90))
