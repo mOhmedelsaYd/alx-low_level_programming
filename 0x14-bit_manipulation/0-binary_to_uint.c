@@ -16,16 +16,21 @@ int total = 0;
 int decval = 1;
 int i;
 
+if (!b)
+return (0);
 while (b[strl])
 strl++;
-if (b == NULL)
-return (0);
+
 for (i = (strl - 1); i >= 0; i--)
+{
+if (!(b[i] >= 97 && b[i] <= 122) && !(b[i] >= 65 && b[i] <= 90))
 {
 if (b[i] == '1')
 total += decval;
 decval *= 2;
 }
-
+else
+return (0);
+}
 return (total);
 }
